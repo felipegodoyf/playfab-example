@@ -46,4 +46,25 @@ public class PlayfabManager : MonoBehaviour
             }
         );
     }
+
+    public void WritePlayerEvent(string eventName, Dictionary<string, object> eventData)
+    {
+        Debug.Log($"PlayFab: WritePlayerEvent '{eventName}'...");
+        PlayFabClientAPI.WritePlayerEvent
+        (
+            new WriteClientPlayerEventRequest()
+            {
+                EventName = eventName,
+                Body = eventData
+            },
+            response =>
+            {
+                Debug.Log($"PlayFab: WritePlayerEvent '{eventName}' success");
+            },
+            error =>
+            {
+                Debug.LogError(error.GenerateErrorReport());
+            }
+        );
+    }
 }
