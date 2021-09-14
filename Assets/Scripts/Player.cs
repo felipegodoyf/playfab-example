@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<Checkpoint>())
+        if (other.gameObject.tag == "Checkpoint")
         {
             // TODO PlayFab Event
 
