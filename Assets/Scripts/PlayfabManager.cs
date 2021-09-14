@@ -5,6 +5,8 @@ using PlayFab.ClientModels;
 
 public class PlayfabManager : MonoBehaviour
 {
+    #region SINGLETON
+
     public static PlayfabManager instance;
 
     private void Awake()
@@ -19,6 +21,9 @@ public class PlayfabManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    #endregion
+    #region LOGIN
 
     void Start()
     {
@@ -47,6 +52,9 @@ public class PlayfabManager : MonoBehaviour
         );
     }
 
+    #endregion
+    #region EVENTS
+
     public void WritePlayerEvent(string eventName, Dictionary<string, object> eventData)
     {
         Debug.Log($"PlayFab: WritePlayerEvent '{eventName}'...");
@@ -67,4 +75,6 @@ public class PlayfabManager : MonoBehaviour
             }
         );
     }
+
+    #endregion
 }
