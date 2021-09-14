@@ -105,13 +105,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Checkpoint>())
         {
-            // Writing PlayFab event
-            Dictionary<string, object> eventData = new Dictionary<string, object>()
-            {
-                { "CheckpointId", other.gameObject.GetComponent<Checkpoint>().id },
-                { "PlayerPosition", transform.position.ToString() }
-            };
-            PlayfabManager.instance.WritePlayerEvent("checkpoint", eventData);
+            // TODO PlayFab Event
 
             // Disabling checkpoint
             other.gameObject.SetActive(false);
